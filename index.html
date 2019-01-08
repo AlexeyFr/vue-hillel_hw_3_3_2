@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>hillel_hw_3_3_2</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+  <style>
+    /*Reset*/
+    html,body,div,span,applet,object,iframe,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,p,h1,h2,h3,h4,h5,h6,dl,dt,dd,ol,ul,li,fieldset,form,legend,table,tbody,tfoot,thead,tr,th{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}:focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+    /*Reset*/
+    body {
+      min-height: 100vh;
+      min-width: 100vw;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      line-height: 1.2;
+      font-size: 14px;
+      background: #fff;
+      color: #fff;
+      position:  relative;
+    }
+    .btn {
+      width: 250px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translate(-50%);
+      cursor: pointer;
+      transition: top .4s ease-out, left .4s ease-out
+    }
+    .red {
+      background: red;
+    }
+    .blue {
+      background: blue;
+    }
+    .green {
+      background: green;
+    }
+  </style>
+
+  <div id="app">
+    <div class="btn red" @mouseover="crazy"><span>{{str}}</span></div>
+    <div class="btn blue" @mouseover="crazy"><span>{{str}}</span></div>
+    <div class="btn green" @mouseover="crazy"><span>{{str}}</span></div>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        str: 'Click Me!'
+      },
+      methods: {
+        crazy(e) {
+          e.target.style.top = ((window.innerHeight - e.target.offsetHeight) * Math.random()) + 'px'
+          e.target.style.left = ((window.innerWidth - e.target.offsetWidth) * Math.random()) + (e.target.offsetWidth / 2) + 'px'
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>
